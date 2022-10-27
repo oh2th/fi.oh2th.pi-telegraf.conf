@@ -1,5 +1,7 @@
-include /etc/default/telegraf
-$(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' /etc/default/telegraf))
+ifneq (,$(wildcard /etc/default/telegraf))
+    include /etc/default/telegraf
+    export
+endif
 
 progname = telegraf
 confdir = /etc/telegraf/telegraf.d
@@ -10,7 +12,7 @@ restart:
 	sudo systemctl restart telegraf.service
 
 test:
-	$(eval env $(cat /etc/default/telegraf | xargs) telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test)
+	telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test)
 
 $(confdir)/%.conf: %.conf
 	cp $< $@
