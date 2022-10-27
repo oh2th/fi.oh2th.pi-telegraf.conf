@@ -10,7 +10,7 @@ restart:
 	sudo systemctl restart telegraf.service
 
 test:
-	telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
+	$(eval env $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' /etc/default/telegraf) telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
 
 $(confdir)/%.conf: %.conf
 	cp $< $@
