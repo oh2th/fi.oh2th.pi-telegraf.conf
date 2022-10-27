@@ -12,6 +12,7 @@ restart:
 	sudo systemctl restart telegraf.service
 
 test:
+	env
 	telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
 
 $(confdir)/%.conf: %.conf
