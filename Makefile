@@ -1,3 +1,4 @@
+include /etc/default/telegraf
 progname = telegraf
 confdir = /etc/telegraf/telegraf.d
 
@@ -7,7 +8,7 @@ restart:
 	sudo systemctl restart telegraf.service
 
 test:
-	env $(cat default/telegraf| xargs) telegraf -config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
+	telegraf -config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
 
 $(confdir)/%.conf: %.conf
 	cp $< $@
