@@ -1,4 +1,6 @@
 include /etc/default/telegraf
+$(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
+
 progname = telegraf
 confdir = /etc/telegraf/telegraf.d
 
