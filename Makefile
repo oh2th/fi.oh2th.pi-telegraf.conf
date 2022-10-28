@@ -12,7 +12,8 @@ restart:
 	sudo systemctl restart telegraf.service
 
 test:
-	telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
+	env | grep MQTT
+	@echo telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
 
 $(confdir)/%.conf: %.conf
 	cp $< $@
