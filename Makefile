@@ -14,7 +14,7 @@ restart:
 
 $(testdir)/%.conf: %.conf
 	[ -d $(testdir) ] || mkdir -p $(testdir)
-	cp $< $(testdir)/$@
+	cp $< $@
 	MQTT_USERNAME=$(MQTT_USERNAME) MQTT_PASSWORD=$(MQTT_PASSWORD) \
 	INFLUXDB_USERNAME=$(MQTT_USERNAME) INFLUXDB_PASSWORD=$(MQTT_PASSWORD) \
 	telegraf --config /etc/telegraf/telegraf.conf --config $@ --test --quiet
