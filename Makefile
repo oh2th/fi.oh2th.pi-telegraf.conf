@@ -13,7 +13,7 @@ restart:
 
 test:
 	env | grep MQTT
-	@echo MQTT_USERNAME=$(MQTT_USERNAME) MQTT_PASSWORD=$(MQTT_PASSWORD) telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test
+	$(warning $(shell MQTT_USERNAME=$(MQTT_USERNAME) MQTT_PASSWORD=$(MQTT_PASSWORD) telegraf --config /etc/telegraf/telegraf.conf --config-directory $(confdir) --test))
 
 $(confdir)/%.conf: %.conf
 	cp $< $@
