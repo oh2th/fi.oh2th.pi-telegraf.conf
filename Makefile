@@ -5,7 +5,7 @@ endif
 
 progname = telegraf
 confdir = /etc/telegraf/telegraf.d
-testdir = test
+testdir = t
 
 install: $(confdir)/*.conf
 

@@ -47,5 +47,6 @@ Thumbs.db
 # VScode
 .vscode/
 
-# Defaults directory
+# Project specific
 default/
+t/
