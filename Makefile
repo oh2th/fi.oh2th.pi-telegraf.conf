@@ -30,7 +30,7 @@ $(confdir)/%.conf: %.conf
 /etc/default/telegraf: default/telegraf
 	if [ -f $@ ]; then \
 		@echo "\nCheck $@ for correct MQTT and INFLUXDB usernames and passwords."; \
-	else; \
+	else \
 		@echo sudo cp -n $< $@; \
 		@echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."; \
 	fi
