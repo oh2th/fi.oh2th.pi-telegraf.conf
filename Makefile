@@ -28,9 +28,9 @@ $(confdir)/%.conf: %.conf
 	sudo cp $< $@
 
 /etc/default/telegraf: default/telegraf
-	if [ -f $@ ]; then \
+	@if [ -f $@ ]; then \
 		echo "\nCheck $@ for correct MQTT and INFLUXDB usernames and passwords."; \
 	else \
-		echo sudo cp -n $< $@; \
+		sudo cp -n $< $@; \
 		echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."; \
 	fi
