@@ -31,6 +31,6 @@ $(confdir)/%.conf: %.conf
 	if [ -f $@ ]; then \
 		@echo "\nCheck $@ for correct MQTT and INFLUXDB usernames and passwords."; \
 	else; \
-		sudo cp -n $< $@; \
+		@echo sudo cp -n $< $@; \
 		@echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."; \
 	fi
