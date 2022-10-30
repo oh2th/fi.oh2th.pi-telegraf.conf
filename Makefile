@@ -28,7 +28,7 @@ $(confdir)/%.conf: %.conf
 	sudo cp $< $@
 
 /etc/default/telegraf: default/telegraf
-	ifeq (,$(wildcard $@))
+	ifneq (,$(wildcard $@))
 		sudo cp -n $< $@
 		@echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."
 	else
