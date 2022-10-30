@@ -7,7 +7,7 @@ progname = telegraf
 confdir = /etc/telegraf/telegraf.d
 testdir = t
 
-install: $(confdir)/*.conf
+install: $(confdir)/*.conf /etc/default/telegraf
 
 restart:
 	sudo systemctl restart telegraf.service
@@ -26,3 +26,11 @@ test-all:
 
 $(confdir)/%.conf: %.conf
 	sudo cp $< $@
+
+/etc/default/telegraf: default/telegraf
+	ifeq (,$(wildcard $@))
+		sudo cp -n $< $@
+		@echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."
+	else
+		@echo "\nCheck $@ for correct MQTT and INFLUXDB usernames and passwords."
+	endif
