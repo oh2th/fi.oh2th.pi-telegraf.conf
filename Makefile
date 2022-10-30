@@ -33,4 +33,4 @@ $(confdir)/%.conf: %.conf
 	else; \
 		sudo cp -n $< $@; \
 		@echo "Template copied for $@.\nEdit $@ for MQTT and INFLUXDB usernames and passwords."; \
-	fi; done
+	fi
