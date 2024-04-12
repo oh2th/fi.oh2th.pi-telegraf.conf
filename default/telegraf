@@ -1,0 +1,4 @@
+MQTT_USERNAME="telegraf"
+MQTT_PASSWORD="SecretMQTTPassword"
+INFLUXDB_USERNAME="telegraf"
+INFLUXDB_PASSWORD="SecretInfluxDBPassword"

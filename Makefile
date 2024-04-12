@@ -7,7 +7,7 @@ progname = telegraf
 confdir = /etc/telegraf/telegraf.d
 testdir = t
 
-install: $(confdir)/*.conf /etc/default/telegraf
+install: $(confdir)/*.conf $(confdir)/*.star
 
 restart:
 	sudo systemctl restart telegraf.service
@@ -25,6 +25,9 @@ test-all:
 	telegraf --config /etc/telegraf/telegraf.conf --config-directory . --test --quiet
 
 $(confdir)/%.conf: %.conf
+	sudo cp $< $@
+
+$(confdir)/%.star: %.star
 	sudo cp $< $@
 
 /etc/default/telegraf: default/telegraf

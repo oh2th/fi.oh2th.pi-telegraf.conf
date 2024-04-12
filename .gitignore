@@ -48,5 +48,4 @@ Thumbs.db
 .vscode/
 
 # Project specific
-default/
 t/
