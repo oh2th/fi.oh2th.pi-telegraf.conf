@@ -14,13 +14,14 @@ Several sources are used in the configuration and currentlyt supported are:
 
 The OS secrets store enabled in secretstores-os.conf is used to save the password for MQTT and INFLUXDB users.
 
-Use telegraf to set:
+Use telegraf to set the secrets:
 
 '''
-telegraf --config secretstores-os.conf secrets set telegraf mqtt_username
-telegraf --config secretstores-os.conf secrets set telegraf mqtt_password
-telegraf --config secretstores-os.conf secrets set telegraf influxdb_username
-telegraf --config secretstores-os.conf secrets set telegraf influxdb_password
+sudo -u telegraf telegraf secrets set telegraf mqtt_username
+sudo -u telegraf telegraf secrets set telegraf mqtt_password
+sudo -u telegraf telegraf secrets set telegraf influxdb_username
+sudo -u telegraf telegraf secrets set telegraf influxdb_password
+sudo -u telegraf telegraf secrets list
 '''
 
 ## BLE Beacons
