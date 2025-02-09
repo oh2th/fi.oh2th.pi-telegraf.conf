@@ -10,6 +10,19 @@ Several sources are used in the configuration and currentlyt supported are:
 - Shelly - <https://shelly.cloud/> sensors with MQTT topics for power,energy, current, voltage
 - Synology NAS by SNMP - limited to hostname, uptime and upsInfoStatus
 
+## OS Secrets store
+
+The OS secrets store enabled in secretstores-os.conf is used to save the password for MQTT and INFLUXDB users.
+
+Use telegraf to set:
+
+'''
+telegraf --config secretstores-os.conf secrets set telegraf mqtt_username
+telegraf --config secretstores-os.conf secrets set telegraf mqtt_password
+telegraf --config secretstores-os.conf secrets set telegraf influxdb_username
+telegraf --config secretstores-os.conf secrets set telegraf influxdb_password
+'''
+
 ## BLE Beacons
 
 ## go-e Charger

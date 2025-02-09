@@ -1,3 +1,8 @@
+# Define the list of files to install
+CONF_FILES := $(wildcard *.conf)
+STAR_FILES := $(wildcard *.star)
+
+
 ifneq (,$(wildcard /etc/default/telegraf))
     include /etc/default/telegraf
     export
@@ -7,7 +12,8 @@ progname = telegraf
 confdir = /etc/telegraf/telegraf.d
 testdir = t
 
-install: $(confdir)/*.conf $(confdir)/*.star
+# The install target copies the conf and star files
+install: $(addprefix $(confdir)/, $(notdir $(CONF_FILES))) $(addprefix $(confdir)/, $(notdir $(STAR_FILES)))
 
 restart:
 	sudo systemctl restart telegraf.service
