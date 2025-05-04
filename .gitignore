@@ -49,3 +49,6 @@ Thumbs.db
 
 # Project specific
 t/
+
+# Any backups
+*.backup

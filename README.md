@@ -16,10 +16,10 @@ The OS secrets store enabled in `secretstores-os.conf` is used to save the passw
 Use telegraf to set the secrets:
 
 ```bash
-sudo -u telegraf telegraf secrets set telegraf mqtt_username
-sudo -u telegraf telegraf secrets set telegraf mqtt_password
-sudo -u telegraf telegraf secrets set telegraf influxdb_username
-sudo -u telegraf telegraf secrets set telegraf influxdb_password
+sudo -u telegraf telegraf secrets set telegraf_store mqtt_username
+sudo -u telegraf telegraf secrets set telegraf_store mqtt_password
+sudo -u telegraf telegraf secrets set telegraf_store influxdb_username
+sudo -u telegraf telegraf secrets set telegraf_store influxdb_password
 sudo -u telegraf telegraf secrets list
 ```
 
